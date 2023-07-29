@@ -1,9 +1,11 @@
-const mongoose = require('mongoose');
+// Currently not in use
+
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema({
-    firstname: String,
-    lastname: String,
-    birthday: String
-  });
+  firstname: String,
+  lastname: String,
+  birthday: String,
+});
 
- module.exports = mongoose.model('users', userSchema);
+module.exports = mongoose.model("users", userSchema);
