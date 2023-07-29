@@ -1,0 +1,21 @@
+const CostItemModel = require("../models/costitemmodel");
+
+function addCostItem(req, res) {
+  console.log(req.body);
+  const costItem = new CostItemModel({
+    user_id: req.body.user_id,
+    year: req.body.year,
+    month: req.body.month,
+    day: req.body.day,
+    description: req.body.description,
+    category: req.body.category,
+    sum: req.body.sum,
+  });
+
+  costItem
+    .save()
+    .then(() => res.send("Cost item added successfully!"))
+    .catch((error) => res.send(error));
+}
+
+module.exports = { addCostItem };
