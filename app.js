@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded());
 
 mongoose.connect(process.env.DATABASE_URL, {
+  dbName: "Cost-Manager-DB",
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
