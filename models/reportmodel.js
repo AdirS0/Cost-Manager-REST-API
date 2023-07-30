@@ -60,6 +60,7 @@ const reportSchema = new mongoose.Schema({
       sum: Number,
     },
   ],
+  total_sum: Number
 });
 
 module.exports = mongoose.model("reports", reportSchema);
