@@ -18,7 +18,9 @@ const reportController = {
         month: month,
       });
 
-      console.log(`Report for user id: ${user_id} does not exist, creating new one`);
+      console.log(
+        `Report for user id: ${user_id} does not exist, creating new one`
+      );
       const costItemsByQuery = await CostItemModel.find({
         user_id,
         month,
@@ -36,10 +38,12 @@ const reportController = {
         report.total_sum = total_sum;
       }
 
-      report
-        .save()
-        .then(() => res.status(201).json(report))
-        .catch((error) => res.status(500).send(error));
+      try {
+        await report.save();
+        res.status(201).json(report);
+      } catch (error) {
+        res.status(500).send(error);
+      }
     } else {
       console.log(`Report for user id: ${user_id} exists`);
       res.status(200).json(checkReport);
