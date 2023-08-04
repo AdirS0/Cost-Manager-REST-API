@@ -18,7 +18,6 @@ const costController = {
       .save()
       .then((savedCostItem) => {
         id = savedCostItem._id;
-        console.log(id);
       })
       .catch((error) => res.error(error));
       console.log(id);
